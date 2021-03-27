@@ -1,7 +1,7 @@
 <template>
   <div class="header">
     <div class="logo-text">
-      Coffee Review
+      USAGONOMI
       <span class="sub-title">〜美味しいコーヒーショップの比較サイト〜</span>
     </div>
     <div>
