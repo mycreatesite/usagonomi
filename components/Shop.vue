@@ -63,4 +63,16 @@ export default Vue.extend({
   margin-top: 12px;
   font-size: 14px;
 }
+
+@media screen and (max-width: 767px) {
+  .shop-card {
+    width: 90vw;
+  }
+}
+ 
+.shop-info {
+  padding: 4px;
+  height: 150px;
+  overflow: hidden;
+}
 </style>

@@ -3,12 +3,14 @@
     <div class="content-title">人気のお店</div>
     <div class="shop-list">
       <div v-for="shop in shops" :key="shop.index">
-        <Shop
-          :image="shop.image"
-          :shopName="shop.shopName"
-          :score="shop.score"
-          :description="shop.description"
-        />
+        <nuxt-link :to="`/shop/${shop.docId}`">
+          <Shop
+            :image="shop.image"
+            :shopName="shop.shopName"
+            :score="shop.score"
+            :description="shop.description"
+          />
+        </nuxt-link>
       </div>
     </div>
   </div>
@@ -19,6 +21,7 @@ import Vue from 'vue'
 import firebase from '@/plugins/firebase'
  
 export interface Shop {
+  docId?: string
   image?: string
   shopName?: string
   score?: Number
@@ -35,8 +38,8 @@ export default Vue.extend({
     dbShops.get().then((querySnapshot) => {
       querySnapshot.forEach((doc) => {
         const data = doc.data()
-        console.log(data)
         const shop: Shop = {
+          docId: doc.id,
           image: data.image ? data.image : '/no-image.png',
           shopName: data.shopName ? data.shopName : '',
           score: data.score ? data.score : 0,
