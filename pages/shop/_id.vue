@@ -1,7 +1,7 @@
 <template>
   <div class="shop-detail">
     <nuxt-link to="/shop/">
-      <button class="back-btn">≪ 戻る</button>
+      <button class="back-btn"> 戻る</button>
     </nuxt-link>
     <div>
       <img class="preview-image" :src="shop.image" alt="" />
