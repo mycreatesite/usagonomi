@@ -5,7 +5,7 @@
       <span class="sub-title">〜美味しいコーヒーショップの比較サイト〜</span>
     </div>
     <div>
-      <nuxt-link class="menu" to="/shop/"> お店 </nuxt-link>
+      <nuxt-link class="menu" to="/shop/"> グッズ </nuxt-link>
       <nuxt-link class="menu" to="/shop/entry/"> 登録 </nuxt-link>
     </div>
   </div>
