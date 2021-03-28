@@ -1,12 +1,15 @@
 <template>
- <div>
+  <div>
   <h1>Page Not Found</h1>
   <h2>お探しのページが見つかりません</h2>
   <p>
-   URLに間違いないか確認し、再度アクセスを試してください。
-   また、つながらない場合は時間をおいて再度アクセスしてください。
+    URLに間違いないか確認し、再度アクセスを試してください。
+    また、つながらない場合は時間をおいて再度アクセスしてください。
   </p>
- </div>
+  <nuxt-link to="/">
+    <button class="back-btn">トップに戻る</button>
+  </nuxt-link>
+  </div>
 </template>
 
 <script></script>

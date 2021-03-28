@@ -11,5 +11,5 @@ if (!firebase.apps.length) {
     measurementId: "G-EEVLYNEBLF"
   })
 }
- 
+export const auth = firebase.auth()
 export default firebase

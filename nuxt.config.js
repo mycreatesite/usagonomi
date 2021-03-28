@@ -1,17 +1,27 @@
+import Fiber from "fibers"
+import Sass from "sass"
+
+const sass = {
+  implementation: Sass,
+  sassOptions: {
+    fiber: Fiber,
+  },
+}
+
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'Coffee Review',
+    title: 'USAGONOMI',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       {
         hid: 'description',
         name: 'description',
-        content: '世界各地の美味しいコーヒーをレビューします！！',
+        content: 'うさぎの好きなものを集めました',
       },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
@@ -21,7 +31,10 @@ export default {
   css: [],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: ['~/plugins/firebase'],
+  plugins: [
+    '~/plugins/firebase',
+    { src: '~/plugins/localStorage.js', ssr: false }
+  ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -42,7 +55,11 @@ export default {
   axios: {},
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {},
+  build: {
+    loaders: {
+      sass
+    }
+  },
   // Routing configuration
   router: {
     extendRoutes (routes, resolve) {

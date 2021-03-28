@@ -1,14 +1,19 @@
 <template>
   <div>
     <Header />
-    <Nuxt />
+    <div class="mainContent">
+      <Nuxt />
+    </div>
+    <Footer />
   </div>
 </template>
 
-<style>
+<style lang="scss">
+
+@import url('https://fonts.googleapis.com/css2?family=Kiwi+Maru:wght@300;400;500&display=swap');
+
 html {
-  font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'Kiwi Maru', serif;
   font-size: 16px;
   word-spacing: 1px;
   -ms-text-size-adjust: 100%;
@@ -18,6 +23,12 @@ html {
   box-sizing: border-box;
 }
 
+body {
+  color: #333;
+  background-color: #f7f7f7;
+  min-height: 100vh;
+}
+
 *,
 *::before,
 *::after {
@@ -25,32 +36,56 @@ html {
   margin: 0;
 }
 
-.button--green {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #3b8070;
-  color: #3b8070;
+.mainContent {
+  padding: 40px 16px;
+  min-height: calc(100vh - 360px);
+} 
+
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+button {
+  font-family: 'Kiwi Maru', serif;
+  cursor: pointer;
+  outline: none;
+}
+
+.button {
+  font-size: 1rem;
+  font-family: 'Kiwi Maru', serif;
+  border-radius: 30px;
+  padding: 16px;
+  display: block;
+  color: #333;
+  border: 1px solid #333;
+  background-color: transparent;
+  transition: .3s;
+  text-align: center;
   text-decoration: none;
-  padding: 10px 30px;
+  &:hover {
+    background-color: #333;
+    color: #fff;
+  }
 }
-
-.button--green:hover {
-  color: #fff;
-  background-color: #3b8070;
-}
-
-.button--grey {
+.formLabel {
+  margin-bottom: 1rem;
   display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #35495e;
-  color: #35495e;
-  text-decoration: none;
-  padding: 10px 30px;
-  margin-left: 15px;
+}
+.formInput {
+  font-size: 18px;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #e2e2e2;
+}
+.formTextarea {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #e2e2e2;
+  resize: vertical;
 }
 
-.button--grey:hover {
-  color: #fff;
-  background-color: #35495e;
-}
 </style>
