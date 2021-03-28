@@ -97,10 +97,5 @@ export default Vue.extend({
     margin-left: 0;
     margin-right: 0;
   }
-  .card__image {
-    img {
-      height: 50vw;
-    }
-  }
 }
 </style>

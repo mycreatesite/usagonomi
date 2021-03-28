@@ -44,11 +44,9 @@ body {
 .container {
   max-width: 720px;
   margin: 0 auto;
-  padding-left: 16px;
-  padding-right: 16px;
 }
 
-button {
+button,input,textarea {
   font-family: 'Kiwi Maru', serif;
   cursor: pointer;
   outline: none;
@@ -71,17 +69,26 @@ button {
     color: #fff;
   }
 }
+
+.labelGroup {
+    display: block;
+    margin-bottom: 1rem;
+}
+
 .formLabel {
   margin-bottom: 1rem;
-  display: inline-block;
+  display: block;
 }
+
 .formInput {
+  width: 100%;
   font-size: 18px;
   padding: 12px;
   border-radius: 8px;
   border: 1px solid #e2e2e2;
 }
 .formTextarea {
+  width: 100%;
   padding: 12px;
   border-radius: 8px;
   border: 1px solid #e2e2e2;

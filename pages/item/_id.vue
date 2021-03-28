@@ -40,7 +40,7 @@
             <StarRating v-model="newScore" :star-size="StarRatingConfig.starSize" />
           </div>
           <div>
-            <textarea class="textarea" v-model="newReview" rows="5"></textarea>
+            <textarea class="formTextarea" v-model="newReview" rows="5"></textarea>
           </div>
           <div>
             <button @click="review()" class="reviewBtn button">レビューを投稿</button>
@@ -156,8 +156,10 @@ h3 {
  
 .itemDetail__image {
   margin-bottom: 40px;
+  text-align: center;
   img {
-    width: 100%;
+    max-width: 100%;
+    max-height: 500px;
     height: auto;
     object-fit: cover;
     border-radius: 40px;
@@ -190,7 +192,7 @@ h3 {
   border-top: 1px solid #e2e2e2;
 }
 
-.textarea {
+.formTextarea {
   width: 100%;
   margin-top: 40px;
 }

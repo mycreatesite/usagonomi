@@ -51,8 +51,8 @@ export default Vue.extend({
         color: #333;
         border-radius: 40px;
     }
-    .labelGroup {
-        margin-bottom: 1rem;
+    .formLabel {
+        width: 100%;
     }
     .formInput {
         width: 100%;

@@ -3,22 +3,22 @@
     <div v-if="item.image">
       <img class="entryForm__image" :src="item.image" alt="" />
     </div>
-    <div class="row">
+    <label class="labelGroup">
       <span class="formLabel">画像</span>
       <input v-if="!reset" @change="upload" type="file" />
-    </div>
-    <div class="row">
+    </label>
+    <label class="labelGroup">
       <span class="formLabel">品名</span>
       <input class="formInput" type="text" v-model="item.name" />
-    </div>
-    <div class="row">
+    </label>
+    <label class="labelGroup">
       <span class="formLabel">金額</span>
       <input class="formInput" type="text" v-model="item.price" />
-    </div>
-    <div class="row">
+    </label>
+    <label class="labelGroup">
       <span class="formLabel">紹介</span>
-      <textarea class="formTextarea" v-model="item.description" rows="5"></textarea>
-    </div>
+      <textarea class="formTextarea" v-model="item.description" rows="10"></textarea>
+    </label>
     <div class="entryForm__btn">
       <button class="button" @click="entryItem()">登録</button>
     </div>
@@ -131,24 +131,6 @@ h2 {
   width: 100%;
   height: auto;
   object-fit: cover;
-}
- 
-.row {
-  display: flex;
-  padding: 12px;
-}
- 
-.formLabel {
-  width: 20%;
-  display: inline-block;
-  vertical-align: top;
-}
- 
-.formInput {
-  width: 80%;
-}
-.formTextarea {
-  width: 80%;
 }
  
 .entryForm__btn {
