@@ -122,9 +122,12 @@ h2 {
 }
  
 .entryForm__image {
-  width: 100%;
+  display: block;
+  margin: 0 auto 1rem;
+  width: auto;
   height: auto;
-  object-fit: cover;
+  max-height: 400px;
+  max-width: 100%;
 }
  
 .entryForm__btn {
