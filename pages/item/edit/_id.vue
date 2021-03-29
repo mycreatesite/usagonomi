@@ -48,6 +48,21 @@ export default Vue.extend({
     errorMessage: '',
     reset: false,
   }),
+  created() {
+    const db = firebase.firestore()
+    const dbItem = db.collection('items').doc(this.$route.params.id)
+    dbItem.get().then((doc) => {
+      const data = doc.data()
+      if(!data) {
+        this.$router.push('/404')
+      } else {
+        this.item.image = data.image ? data.image : '/no-image.png'
+        this.item.name = data.name ? data.name : ''
+        this.item.price = data.price ? data.price : ''
+        this.item.description = data.description ? data.description : ''
+      }
+    })
+  },
   methods: {
     entryItem() {
       this.errorMessage = ''
@@ -57,9 +72,9 @@ export default Vue.extend({
       }
  
       const db = firebase.firestore()
-      const dbItems = db.collection('items')
+      const dbItems = db.collection('items').doc(this.$route.params.id)
       dbItems
-        .add({
+        .update({
           name: this.item.name,
           price: this.item.price,
           description: this.item.description,

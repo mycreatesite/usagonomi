@@ -48,8 +48,10 @@ body {
 
 button,input,textarea {
   font-family: 'Kiwi Maru', serif;
-  cursor: pointer;
   outline: none;
+}
+button {
+  cursor: pointer;
 }
 
 .button {

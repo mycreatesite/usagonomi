@@ -25,13 +25,19 @@
           </div>
         </div>
       </div>
+      <div class="controlGroup" v-if="getLogin">
+        <nuxt-link :to="`/item/edit/${$route.params.id}`">
+          <button class="controlBtn button ">編集</button>
+        </nuxt-link>
+        <button @click="deleteItem()" class="controlBtn button controlBtn--remove">削除</button>
+      </div>
       <div class="itemReview">
         <h3>レビュー</h3>
         <div class="item-review">
           {{ item.review }}
         </div>
         <div v-if="!showReviewInput && getLogin">
-          <button @click="showReviewInput = !showReviewInput" class="reviewBtn button">
+          <button @click="showReviewInput = !showReviewInput" class="controlBtn button">
             レビューする
           </button>
         </div>
@@ -43,7 +49,7 @@
             <textarea class="formTextarea" v-model="newReview" rows="5"></textarea>
           </div>
           <div>
-            <button @click="review()" class="reviewBtn button">レビューを投稿</button>
+            <button @click="review()" class="controlBtn button">レビューを投稿</button>
           </div>
         </div>
       </div>
@@ -104,18 +110,26 @@ export default Vue.extend({
         this.item.price = data.price ? data.price : ''
         this.item.score = data.score ? data.score : 0
         this.item.description = data.description ? data.description : ''
-        this.item.review = data.review
-          ? data.review
-          : 'レビューはまだありません。'
+        this.item.review = data.review ? data.review : 'レビューはまだありません。'
+        this.newScore = data.score ? data.score : 0
+        this.newReview = data.review ? data.review : ''
       }
     })
   },
   methods: {
+    deleteItem() {
+      const result = confirm('本当に削除しますか？')
+      if(!result) return
+      const db = firebase.firestore()
+      const dbItem = db.collection('items').doc(this.$route.params.id)
+      dbItem.delete().then(()=>{
+        this.$router.push('/')
+      })
+    },
     review() {
       const db = firebase.firestore()
       const dbItem = db.collection('items').doc(this.$route.params.id)
-      dbItem
-        .update({
+      dbItem.update({
           score: this.newScore,
           review: this.newReview,
         })
@@ -196,22 +210,19 @@ h3 {
   width: 100%;
   margin-top: 40px;
 }
- 
-.reviewBtn {
-  font-family: 'Kiwi Maru', serif;
-  width: 50%;
-  border-radius: 30px;
-  padding: 16px;
-  display: block;
-  margin: 40px auto 0;
-  cursor: pointer;
-  color: #333;
-  border: 1px solid #333;
-  background-color: transparent;
-  transition: .3s;
-  &:hover {
-    background-color: #333;
-    color: #fff;
+
+.controlGroup {
+  > a {
+    text-decoration: none;
   }
+}
+
+.controlBtn {
+  width: 50%;
+  margin: 40px auto 0;
+}
+
+.controlBtn--remove {
+  margin-top: 24px;
 }
 </style>
