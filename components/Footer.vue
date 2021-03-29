@@ -26,6 +26,9 @@
 <style lang="scss" scoped>
 .siteDesc {
   margin-bottom: 80px;
+  .container {
+    padding: 0 1rem;
+  }
   .siteDesc__inner {
     display: flex;
     padding: 24px;
@@ -57,6 +60,19 @@
   small {
     color: #fff;
     font-size: .5rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .siteDesc {
+    .siteDesc__inner {
+      flex-direction: column;
+      align-items: center;
+    }
+    .siteDesc__image {
+      width: 70px;
+      margin: 0 0 1rem;
+    }
   }
 }
 
