@@ -58,7 +58,7 @@ export default Vue.extend({
       } else {
         this.item.image = data.image ? data.image : '/no-image.png'
         this.item.name = data.name ? data.name : ''
-        this.item.price = data.price ? data.price : ''
+        this.item.price = data.price ? data.price : 0
         this.item.description = data.description ? data.description : ''
       }
     })
