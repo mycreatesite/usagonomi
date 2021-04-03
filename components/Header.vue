@@ -109,9 +109,5 @@ export default Vue.extend({
   .header__logo {
     font-size: 30px;
   }
- 
-  .header__subTitle {
-    display: none;
-  }
 }
 </style>
