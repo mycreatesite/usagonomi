@@ -1,8 +1,8 @@
 <template>
   <header class="header">
     <div class="header__title">
-      <nuxt-link to="/"><img src="/logo.svg" alt="USAGONOMI"></nuxt-link>
-      <span class="header__subTitle">うさぎの好きなもの</span>
+      <h1><nuxt-link to="/"><img src="/logo.svg" alt="USAGONOMI"></nuxt-link></h1>
+      <h2 class="header__subTitle"><span>うさぎの好きなもの</span></h2>
     </div>
     <div v-if="getLogin">
       <div v-if="this.$route.path === '/'" class="header__button">
@@ -80,6 +80,8 @@ export default Vue.extend({
  
 .header__subTitle {
   margin-top: .5rem;
+  font-weight: normal;
+  font-size: 1rem;
 }
 
 .header__button {

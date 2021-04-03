@@ -2,7 +2,7 @@
   <div class="card">
     <div class="card__image"><img :src="$props.image" alt="" /></div>
     <div class="card__body">
-      <div class="card__name">{{$props.name}}</div>
+      <h3 class="card__name">{{$props.name}}</h3>
       <div class="card__price">{{Number($props.price).toLocaleString()}}円</div>
       <div class="card__score">
         <StarRating
