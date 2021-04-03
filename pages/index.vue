@@ -1,15 +1,22 @@
 <template>
-  <div class="itemList">
-    <div class="itemList__item" v-for="item in items" :key="item.index">
-      <nuxt-link :to="`/item/${item.docId}`">
-        <Item
-          :image="item.image"
-          :name="item.name"
-          :price="item.price"
-          :score="item.score"
-        />
-      </nuxt-link>
+  <div class="mainContent__inner">
+    <div class="loader" v-show="loading">
+      <vue-loaders name="ball-scale-ripple-multiple" color="#333" scale="1"></vue-loaders>
     </div>
+    <transition>
+      <ul v-show="!loading" class="itemList">
+        <li class="itemList__item" v-for="item in items" :key="item">
+          <nuxt-link :to="`/item/${item.docId}`">
+            <Item
+              :image="item.image"
+              :name="item.name"
+              :price="item.price"
+              :score="item.score"
+            />
+          </nuxt-link>
+        </li>
+      </ul>
+    </transition>
   </div>
 </template>
  
@@ -25,10 +32,11 @@ interface Item {
   score?: number
   description?: string
 }
- 
+
 export default Vue.extend({
   data: () => ({
     items: [] as Item[],
+    loading: true
   }),
   created() {
     const db = firebase.firestore()
@@ -45,6 +53,7 @@ export default Vue.extend({
           description: data.description ? data.description : '',
         }
         this.items.push(item)
+        this.loading = false
       })
     })
   }
@@ -58,6 +67,8 @@ export default Vue.extend({
   margin-left: -1rem;
   margin-right: -1rem;
   margin-bottom: -2rem;
+  padding: 0;
+  list-style: none;
 }
 
 .itemList__item {
@@ -70,6 +81,23 @@ export default Vue.extend({
     height: 100%;
     text-decoration: none;
   }
+}
+
+.loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.v-leave-active,
+.v-enter-active {
+  transition: opacity 1s;
+  transition-delay: .2s;
+}
+.v-enter,
+.v-leave-to {
+  opacity: 0;
 }
 
 @media screen and (max-width: 768px) {

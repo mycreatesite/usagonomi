@@ -37,6 +37,7 @@ body {
 }
 
 .mainContent {
+  position: relative;
   padding: 40px 16px;
   min-height: calc(100vh - 360px);
 } 

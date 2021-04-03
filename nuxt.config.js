@@ -36,6 +36,7 @@ export default {
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     '~/plugins/firebase',
+    "~/plugins/vue-loaders",
     { src: '~/plugins/localStorage.js', ssr: false }
   ],
 
